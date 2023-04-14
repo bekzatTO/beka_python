@@ -346,6 +346,67 @@ print(vote("Democrat","California"))
 
 
 
+########################################################################
+
+
+# argparse module
+
+
+
+
+import math, os, sys, argparse
+
+parser=argparse.ArgumentParser(description="Volume of all 3D objects in Geometry")
+parser.add_argument("-r","--radius", type=int,help="radius")
+parser.add_argument("-ht","--height", type=int,help="height")
+parser.add_argument("-w","--width", type=int,help="width")
+parser.add_argument("-l","--length", type=int,help="length")
+
+args=parser.parse_args()
+
+
+class Volume:
+    def __init__(self, width, length,radius,height=5):
+        self.r=radius
+        self.h=height
+        self.w=width
+        self.l=length
+    
+    def cylinder(self):
+        return self.r**2 * math.pi * self.h
+    
+
+    def sphere(self):
+        return self.r**3 * math.pi *4/3
+    
+    def rect_prism(self):
+        return self.h * self.w * self.l
+
+height=2
+width=4
+length=4
+radius=7
+
+if args.height:
+    height=args.height
+
+if args.width:
+    width=args.width
+
+if args.length:
+    length=args.length
+
+
+p1=Volume( width, length, radius, height)   
+print(p1.cylinder())
+
+
+
+
+
+
+
+
 
 
 
