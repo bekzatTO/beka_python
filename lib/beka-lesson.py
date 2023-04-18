@@ -402,7 +402,25 @@ print(p1.cylinder())
 
 
 
+##################################################
 
+
+class Foo:
+
+    def meth1(self,x):
+        return x.meth3()
+    
+    def meth2(self,meth1=False):
+        p2=Foo()
+        return p2.meth1(p2)
+    
+    def meth3(self):
+        return f"I am from meth3"
+
+
+p1=Foo()
+
+print(p1.meth1(p1))
 
 
 
